@@ -4,7 +4,7 @@
 ## 如何使用
 [私有npm仓库使用说明]()
 ```
-npm i @uni/common-components-p -S
+yarn install @form/common-component-vue
 ```
 ## 文档
 - `npx styleguidist server`可在本地查看
