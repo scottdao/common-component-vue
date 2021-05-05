@@ -992,6 +992,17 @@
   "resolved" "https://registry.npm.taobao.org/@emotion/unitless/download/@emotion/unitless-0.7.3.tgz"
   "version" "0.7.3"
 
+"@form-component/common-antd-vue@^0.1.0":
+  "integrity" "sha512-PgltSmSsYnG4kVWCJ22MjLzMPY2Pl9Ub3YNGYUHJdHOEYPPbHSA4TjvcFcYGDDaqGQlzCqNANeeZqVYUifHRLQ=="
+  "resolved" "https://registry.npmjs.org/@form-component/common-antd-vue/-/common-antd-vue-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "@ant-design-vue/use" "^0.0.1-alpha.9"
+    "@ant-design/icons-vue" "^6.0.1"
+    "@types/lodash" "^4.14.162"
+    "ant-design-vue" "^2.1.3"
+    "moment" "^2.29.1"
+
 "@intlify/core-base@9.1.6":
   "integrity" "sha512-d5GDPpsQbqPkisSJA5b6nJFEkalY/IHAd7vOLNd/Sj4YaNRzXtInu2FoqKiOv8e/lQnXGTpurdCZg5Jxq1Gsxw=="
   "resolved" "https://registry.npmjs.org/@intlify/core-base/-/core-base-9.1.6.tgz"
@@ -9274,7 +9285,7 @@
     "webpack-dev-server" "^3.2.1"
     "webpack-merge" "^4.2.1"
 
-"react@^16.8.6":
+"react@^16.8.0", "react@^16.8.6":
   "integrity" "sha1-rWw6lhT9Ok6e9REX9U2IjaAfK74="
   "resolved" "https://registry.npm.taobao.org/react/download/react-16.8.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-16.8.6.tgz"
   "version" "16.8.6"
