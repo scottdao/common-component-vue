@@ -1,0 +1,1 @@
+npm i @uni/common-components-p -S
