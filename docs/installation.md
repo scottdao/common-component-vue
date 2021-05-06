@@ -1,1 +1,1 @@
-npm i @uni/common-components-p -S
+npm i @form-component/common-antd-vue -S
