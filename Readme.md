@@ -190,8 +190,13 @@ npm publish
 │   ├── installation.md         // 安装说明
 │   └── introduction.md
 ├── esm                         // es版本发布包
-│   ├── DisabledTipsButton
-│   │   └── index.js
+│   ├── form
+│   │   ├── hooks
+│   │   │   ├── index.js
+│   │   │   ├── index.js
+|   |   |   ├── install-antd.js
+│   │   │   ├── SearchForm.vue
+│   │   │   └── index.vue
 │   └── index.js
 ├── lib                        // commonjs版本发布包
 ├── examples 
@@ -200,10 +205,13 @@ npm publish
 │       └── index.js
 ├── src                        // 组件源码
 │   ├── components
-│   │   ├── DisabledTipsButton
-│   │   │   ├── Readme.md
-│   │   │   ├── style.css
-│   │   │   └── index.jsx
+│   │   ├── form
+│   │   │   ├── hooks
+│   │   │   │   ├── index.js
+│   │   │   ├── index.js
+|   |   |   ├── install-antd.js
+│   │   │   ├── SearchForm.vue
+│   │   │   └── index.vue
 │   │   └── index.js
 │   ├── styleguide   
 │   │   ├── Wrapper            // styleguide全局配置
