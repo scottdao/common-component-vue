@@ -34,7 +34,8 @@
 </template>
 <script lang="js">
 import { defineComponent, toRaw, ref } from 'vue'
-import  { SearchForm, useFormSearch }  from './components/index.js'
+// import  { SearchForm, useFormSearch }  from '@form-component/common-antd-vue'
+import { SearchForm, useFormSearch }  from '../lib/index.js'
 export default defineComponent({
     components:{
         SearchForm

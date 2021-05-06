@@ -20,7 +20,7 @@
                             :wrapper-col="{
                                 span:item.label?20:24
                             }"
-                            :label-col="{span:4, style:{ lineHeight:`${sizeConfigs[item.component?.props?.size] || 32}px` } }"
+                            :label-col="{span:4, style:{ lineHeight:`${sizeConfigs[item.component.props.size] || 32}px` } }"
                     >
                         <span v-if="!item.isSlotFlag">
                             <!-- input简易 -->
@@ -73,7 +73,6 @@
                                 @ok="(e)=>item.component.props.ok&&item.component.props.ok(e)"
                                 :show-time="item.component.props.showTime"
                             />
-                           
                             <!-- <component
                                 :is="item.component.name"
                                 :placeholder='item.component.props.placeholder'

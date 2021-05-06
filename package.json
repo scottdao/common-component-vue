@@ -1,6 +1,6 @@
 {
     "name": "@form-component/common-antd-vue",
-    "version": "0.1.0",
+    "version": "0.1.4",
     "description": "",
     "main": "lib/index.js",
     "module": "esm/index.js",
@@ -11,12 +11,21 @@
         "build:esm": "babel src/components --out-dir esm/ --ignore **/__tests__,**/__mocks__",
         "copy-css:esm": "cpx \"src/components/**/*.css\" esm",
         "copy-css:lib": "cpx \"src/components/**/*.css\" lib",
-        "build": "rm -rf lib && rm -rf esm && npm run build:commonjs && npm run build:esm && npm run copy-css:esm && npm run copy-css:lib",
+        "copy-vue:lib": "cpx \"src/components/**/*.vue\" lib",
+        "copy-vue:esm": "cpx \"src/components/**/*.vue\" esm",
+        "build:lib": "rm -rf lib && npm run build:commonjs && npm run copy-vue:lib  && npm run copy-css:lib",
+        "build:esm:dev": "rm -rf esm && npm run build:esm && npm run copy-vue:esm  && npm run copy-css:esm",
+        "build": "npm run build:lib && npm run build:esm:dev",
         "doc:server": "npx styleguidist server",
-        "doc:build": "npx styleguidist build"
+        "doc:build": "npx styleguidist build",
+        "publish:dev": "npm publish --access public"
     },
     "author": "",
     "license": "ISC",
+    "files": [
+        "lib",
+        "esm"
+    ],
     "peerDependencies": {
         "@vue/compiler-sfc": ">=3.0.9",
         "react": "^16.8.0",
