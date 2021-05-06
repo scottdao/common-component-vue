@@ -20,7 +20,7 @@
                             :wrapper-col="{
                                 span:item.label?20:24
                             }"
-                            :label-col="{span:4, style:{ lineHeight:`${sizeConfigs[item.component.props.size] || 32}px` } }"
+                            :label-col="{span:4, style:{ lineHeight:`${sizeConfigs[item.component && item.component.props && item.component.props.size||''] || 32}px` } }"
                     >
                         <span v-if="!item.isSlotFlag">
                             <!-- input简易 -->
@@ -52,7 +52,7 @@
                                :placeholder='item.component.props.placeholder'
                                style="height:100%;"
                                :size='item.component.props.size'
-                               :mode="item.component?.props?.mode || undefined"
+                               :mode="item.component.props.mode || undefined"
                             >
                                 <a-select-option
                                     v-for="_option in item.component.data"
