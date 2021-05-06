@@ -992,10 +992,10 @@
   "resolved" "https://registry.npm.taobao.org/@emotion/unitless/download/@emotion/unitless-0.7.3.tgz"
   "version" "0.7.3"
 
-"@form-component/common-antd-vue@^0.1.4":
-  "integrity" "sha512-5SHxUhS46nZ9n0NbvVd8mn0GXyt9Gi3hztKqo72siOudwAzx4XglNQX8NUtatALvrqqXPffSN/MqkeWxwD8bDg=="
-  "resolved" "https://registry.npmjs.org/@form-component/common-antd-vue/-/common-antd-vue-0.1.4.tgz"
-  "version" "0.1.4"
+"@form-component/common-antd-vue@^0.1.6":
+  "integrity" "sha512-DozROs6VAWUGS7P0wl+8Fv8hZnbZCRtYmPw2PBA0h9m7bnPhET/UaFbY5Irj54cDt0HsHU8x5R9H06fE8kQ4SA=="
+  "resolved" "https://registry.npmjs.org/@form-component/common-antd-vue/-/common-antd-vue-0.1.6.tgz"
+  "version" "0.1.6"
   dependencies:
     "@ant-design-vue/use" "^0.0.1-alpha.9"
     "@ant-design/icons-vue" "^6.0.1"
