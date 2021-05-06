@@ -79,7 +79,7 @@ module.exports = {
                 loader: 'raw-loader',
             },
             {
-                test: /\.(vue)$/,
+                test: /\.vue$/,
                 loader: 'vue-loader',
             },
             {
