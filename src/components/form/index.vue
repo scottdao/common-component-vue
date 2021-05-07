@@ -20,7 +20,10 @@
                             :wrapper-col="{
                                 span:item.label?20:24
                             }"
-                            :label-col="{span:4, style:{ lineHeight:`${sizeConfigs[item.component && item.component.props && item.component.props.size||''] || 32}px` } }"
+                            :label-col="{span:4, style:{
+                                    // lineHeight:2
+                                }
+                                }"
                     >
                         <span v-if="!item.isSlotFlag">
                             <!-- input简易 -->

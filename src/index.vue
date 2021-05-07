@@ -34,7 +34,7 @@
 </template>
 <script lang="js">
 import { defineComponent, toRaw, ref } from 'vue'
-import  { SearchForm, useFormSearch }  from '@form-component/common-antd-vue'
+import  { SearchForm, useFormSearch }  from './components/index.js'
 // import { SearchForm, useFormSearch }  from '../lib/index.js'
 export default defineComponent({
     components:{
@@ -51,7 +51,7 @@ export default defineComponent({
                             name:'input', 
                             props:{
                                 placeholder:"请输入你的用户名",
-                                size:'default',// default 32
+                                size:'samll',// default 32
                                 // change:()=>{}
                             },
                             // data:[]
@@ -66,7 +66,7 @@ export default defineComponent({
                             name:'select', 
                             props:{
                                 placeholder:"请选择信号值",
-                                // size:'default',// default 32
+                                size:'lager',// default 32
                                 // change:()=>{}
                             },
                             data:[
