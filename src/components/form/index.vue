@@ -109,10 +109,6 @@ export default defineComponent({
         }
     },
     setup(props) {
-        onMounted(()=>{
-           
-            // console.log(state, 123321, context, formRef)
-        })
         return {
           ...props.formParams,
           sizeConfigs:{

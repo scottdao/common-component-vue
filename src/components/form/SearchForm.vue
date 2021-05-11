@@ -14,19 +14,21 @@
                     >
                         <template #icon><SearchOutlined /></template>查询
                     </a-button>
-                    <a-button
-                    @click="resetQuery"
-                    >
-                        <template #icon><RedoOutlined /></template>重置
-                    </a-button>
-                    <a :style="{ marginLeft: '8px', fontSize: '12px' }" @click="toggle">
-                        <span v-if="isExpand">
-                            折叠<UpOutlined />
-                        </span>
-                        <span v-else>
-                            展开<DownOutlined />
-                        </span>
-                    </a>
+                    <span v-if="formParams.isFlagLimit">
+                        <a-button
+                        @click="resetQuery"
+                        >
+                            <template #icon><RedoOutlined /></template>重置
+                        </a-button>
+                        <a :style="{ marginLeft: '8px', fontSize: '12px' }" @click="toggle">
+                            <span v-if="isExpand">
+                                折叠<UpOutlined />
+                            </span>
+                            <span v-else>
+                                展开<DownOutlined />
+                            </span>
+                        </a>
+                    </span>
                 </div>
             </template>
         </common-form>
@@ -38,7 +40,8 @@ import {
     onMounted,
     reactive,
     toRefs,
-    watch
+    watch,
+    toRaw
 } from 'vue'
 import CommonForm from './index.vue';
 import { useFormParams } from './index'
@@ -64,9 +67,8 @@ export default defineComponent({
             params:[]
         })
         const formParams = useFormParams()
-        const { formState, formRef, formParams:params, noExpandFn, expandFn }  = formParams
+        const { formState, formRef, formParams:params, noExpandFn, expandFn, isFlagLimit }  = formParams
         const resetQuery = ()=>{
-            // console.log(formRef, 8888, formState)
             formRef.value.resetFields()
             context.emit('resetQuery')
         }
@@ -75,7 +77,6 @@ export default defineComponent({
             context.emit('searchQuery', { ..._.omit(values, ['button']) })
         }
         onMounted(()=>{
-            //  console.log(formParams.formState, 99877)
             if(!state.isExpand){
                 noExpandFn();
             }else{
