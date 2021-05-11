@@ -1,4 +1,5 @@
 <template>
+<div>
  <div style="background-color:#ddd;padding:20px;">
     <search-form @searchQuery='queryClick' @resetQuery='resetScreen'>
         <template v-slot:customer="{config:{data, formState}}">
@@ -31,14 +32,19 @@
        </template>
     </search-form>
  </div>
+ <div style="background-color:#ddd;padding:20px;width:600px;margin:30px auto;">
+      <FormComponentTest />
+ </div>
+</div>
 </template>
 <script lang="js">
 import { defineComponent, toRaw, ref } from 'vue'
 import  { SearchForm, useFormSearch }  from './components/index.js'
-// import { SearchForm, useFormSearch }  from '../lib/index.js'
+import FormComponentTest from './form-compoent-test.vue'
 export default defineComponent({
     components:{
-        SearchForm
+        SearchForm,
+        FormComponentTest
     },
     setup(){
             const formParams = [
@@ -51,7 +57,7 @@ export default defineComponent({
                             name:'input', 
                             props:{
                                 placeholder:"请输入你的用户名",
-                                size:'samll',// default 32
+                                size:'small',// default 32
                                 // change:()=>{}
                             },
                             // data:[]
@@ -66,7 +72,7 @@ export default defineComponent({
                             name:'select', 
                             props:{
                                 placeholder:"请选择信号值",
-                                size:'lager',// default 32
+                                size:'large',// default 32
                                 // change:()=>{}
                             },
                             data:[

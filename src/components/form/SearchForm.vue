@@ -12,13 +12,19 @@
                     type="primary"
                     @click="searchQuery(config)"
                     >
-                        <template #icon><SearchOutlined /></template>查询
+                        <template #icon><SearchOutlined /></template>
+                        <span>
+                            查询
+                        </span>
                     </a-button>
                     <span v-if="formParams.isFlagLimit">
                         <a-button
-                        @click="resetQuery"
+                            @click="resetQuery"
                         >
-                            <template #icon><RedoOutlined /></template>重置
+                            <template #icon><RedoOutlined /></template>
+                            <span>
+                                重置
+                            </span>
                         </a-button>
                         <a :style="{ marginLeft: '8px', fontSize: '12px' }" @click="toggle">
                             <span v-if="isExpand">

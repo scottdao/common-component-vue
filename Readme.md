@@ -3,6 +3,8 @@
 为了满足定制化的需求，提高代码的可复用性，设计一套基于antd的后台组件库。
 ## 如何使用
 [私有npm仓库使用说明]()
+## 基于antd-vue组件二次开发
+[组件](https://www.antdv.com/components/button-cn/)
 ```
 npm i @form-component/common-antd-vue
 ```
@@ -180,10 +182,10 @@ export default defineComponent({
 
 ```
 npm run build
-npm publish
+npm publish --access public
 ```
 ### 文档
-使用[styleguidist]()作为文档及在线demo的生成工具。
+使用[styleguidist](https://vue-styleguidist.github.io/docs/GettingStarted.html#_1-install)作为文档及在线demo的生成工具。
 ### 目录结构
 ```
 ├── docs
@@ -231,7 +233,7 @@ npm publish
 ### 测试
 暂无
 ### 组件写法及规范
-- 开发新组件在src/components下建立文件夹，使用**帕斯卡命名法**，如`DisabledTipsButton`
+- 开发新组件在src/components下建立文件夹，使用**帕斯卡命名法**，如`SearchForm`
 - 组件文件夹:
     <!-- - index.jsx为组件源码，组件接收的props使用**propTypes**进行类型检查，并为每个prop添加**jsDoc**注释 -->
     <!-- - 建议组件内部使用**styled-components**编写样式代码，也可以在组件文件夹内单独抽出style.css文件 -->
@@ -242,7 +244,7 @@ npm publish
     - 希望你在修改已有的组件时保证**兼容性**，并为修改部分提供**详细的注释**并且补充**文档和更新说明**
     - 希望你在添加组件时尽可能多的考虑适配性，可通用性，编写出**可供他人使用**的组件
 ### 开发流程
-- 在src/components文件夹下开发组件，在src/index中引入需要测试的组件，并执行`npm run start`测试。
+- 在src/components文件夹下开发组件，在src/index中引入需要测试的组件，并执行`npm run test`测试。
 - 在对应组件下的Readme中编写组件的在线文档。执行`npm run doc:server`本地预览文档。
 - 执行`npm run doc:build`生成组件库文档。
 
@@ -267,3 +269,5 @@ npm publish
 
 ### 0.1.7
 - 判断数量少于3个重置按钮和折叠按钮不展现
+### 0.2.7
+- 新增组件FormComponent,多加了校验功能配置

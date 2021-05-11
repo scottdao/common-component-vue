@@ -31,7 +31,7 @@
                                 v-if="item.component.name === 'input'"
                                 v-model:value="formState[item.filed]" 
                                 :placeholder='item.component.props.placeholder'
-                                :size='item.component.props.size'
+                                :size='(item.component && item.component.props && item.component.props.size) || ""'
                                 @change="(e)=>item.component.props.change && item.component.props.change(e)"
                                 allowClear
                                 style="height:100%;"
@@ -42,7 +42,7 @@
                                 style="width:100%;height:100%;"   
                                 v-model:value="formState[item.filed]" 
                                 :placeholder='item.component.props.placeholder'
-                                :size='item.component.props.size'
+                                :size='(item.component && item.component.props && item.component.props.size) || ""'
                                 @change="(e)=>item.component.props.change && item.component.props.change(e)"
                                 allowClear
                             >
@@ -54,7 +54,8 @@
                                allowClear
                                :placeholder='item.component.props.placeholder'
                                style="height:100%;"
-                               :size='item.component.props.size'
+                                @change="(e)=>item.component.props.change && item.component.props.change(e)"
+                               :size='(item.component && item.component.props && item.component.props.size)||""'
                                :mode="item.component.props.mode || undefined"
                             >
                                 <a-select-option
@@ -70,7 +71,7 @@
                                 allowClear
                                 :locale='locale'
                                 style="width:100%;"
-                                :size='item.component.props.size'
+                                :size='(item.component && item.component.props && item.component.props.size)||""'
                                 :placeholder='item.component.props.placeholder'
                                 @change="(e)=>item.component.props.change&&item.component.props.change(e)" 
                                 @ok="(e)=>item.component.props.ok&&item.component.props.ok(e)"
