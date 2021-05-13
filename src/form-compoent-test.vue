@@ -1,6 +1,6 @@
 <template>
     <div >
-        <form-component>
+        <form-component ref="form">
             <template v-slot:customer="{config:{data, formState}}">
                 <a-checkbox v-model:checked="formState.value.customer" style="line-height:32px;">Checkbox</a-checkbox>
             </template>
@@ -27,7 +27,7 @@
                 </template>
         </form-component>
         <div style="text-align:right;">
-            <a-button type="primary" @click="">
+            <a-button type="primary" @click="queryClick">
                 确定
             </a-button>
             <a-button style="margin-left:20px;">
@@ -37,13 +37,14 @@
     </div>
 </template>
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref, toRaw } from 'vue'
 import { FormComponent, setUseForm } from './components/index'
 export default defineComponent({
     components:{
         FormComponent
     },
     setup() {
+        const form = ref(null)
         const formParams = [
                 {
                     label:"用户名",
@@ -136,14 +137,21 @@ export default defineComponent({
                 hideRequiredMark:false,
                 labelAlign:'right'
         }
-        const queryClick = ()=>{}
+        const queryClick = ()=>{
+            const { useForm } = form.value
+            const form_value = useForm()
+            // console.log(form_value, 77666)
+        }
         setUseForm({
             formParams,
             formState,
             formConfig,
-            formItemConfig:{},
-            queryClick
+            formItemConfig:{}
         })
+        return {
+            queryClick,
+            form
+        }
     },
 })
 </script>

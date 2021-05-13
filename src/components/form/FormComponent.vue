@@ -36,12 +36,12 @@ export default defineComponent({
     },
     setup(props, context) {
         const forms = useForm()
-        onMounted(()=>{
-            // console.log(forms, 4545435)
-        })
+        const use_form = ()=>{
+            return forms.formRef.value
+        }
         return {
-            forms
-            // ...toRefs(state)
+            forms,
+            useForm:use_form
         }
     },
 })
