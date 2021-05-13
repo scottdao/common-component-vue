@@ -20,6 +20,10 @@
         "doc:build": "npx styleguidist build",
         "publish:dev": "npm publish --access public"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/scottdao/common-component-vue.git"
+    },
     "author": "",
     "license": "ISC",
     "files": [
