@@ -12,10 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master
+      - name: Checkout main
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: main
       - name: Setup node
         uses: actions/setup-node@v2
         with:
