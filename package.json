@@ -24,7 +24,7 @@
         "type": "git",
         "url": "https://github.com/scottdao/common-component-vue.git"
     },
-    "author": "",
+    "author": "scottdao",
     "license": "ISC",
     "files": [
         "lib",
