@@ -271,3 +271,5 @@ npm publish --access public
 - 判断数量少于3个重置按钮和折叠按钮不展现
 ### 0.2.7
 - 新增组件FormComponent,多加了校验功能配置
+### 0.2.8
+- 添加formComponent清楚字段值为空

@@ -30,14 +30,14 @@
             <a-button type="primary" @click="queryClick">
                 确定
             </a-button>
-            <a-button style="margin-left:20px;">
-                取消
+            <a-button style="margin-left:20px;" @click="cancel">
+                清空
             </a-button>
         </div>
     </div>
 </template>
 <script>
-import { defineComponent, ref, toRaw } from 'vue'
+import { defineComponent, nextTick, onMounted, ref, toRaw } from 'vue'
 import { FormComponent, setUseForm } from './components/index'
 export default defineComponent({
     components:{
@@ -142,6 +142,16 @@ export default defineComponent({
             const form_value = useForm()
             // console.log(form_value, 77666)
         }
+        const cancel = ()=>{
+             const { clearFileds } = form.value
+             clearFileds()
+        }
+        onMounted(async ()=>{
+            // await nextTick()
+            const { setFiledValues } = form.value
+            
+            setFiledValues({username:123321, singalValue:'is'})
+        })
         setUseForm({
             formParams,
             formState,
@@ -150,7 +160,8 @@ export default defineComponent({
         })
         return {
             queryClick,
-            form
+            form,
+            cancel
         }
     },
 })

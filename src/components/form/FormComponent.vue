@@ -15,7 +15,8 @@ import {
     reactive,
     toRefs,
     watch,
-    toRaw
+    toRaw,
+    nextTick
 } from 'vue'
 import CommonForm from './index.vue';
 import { useForm } from './index'
@@ -37,11 +38,27 @@ export default defineComponent({
     setup(props, context) {
         const forms = useForm()
         const use_form = ()=>{
+            // console.log(forms, 7766)
             return forms.formRef.value
+        }
+        const clearFileds = ()=>{
+            const values = forms.formState.value
+            Object.keys(values).forEach(keys => {
+                values[keys] = undefined
+            });
+        }
+        const setFiledValues = async (values)=>{
+            await nextTick()
+            const _values = forms.formState.value
+            Object.keys(values).forEach(keys => {
+                _values[keys] = values[keys]
+            });
         }
         return {
             forms,
-            useForm:use_form
+            useForm:use_form,
+            clearFileds,
+            setFiledValues
         }
     },
 })
