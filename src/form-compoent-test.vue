@@ -147,9 +147,7 @@ export default defineComponent({
              clearFileds()
         }
         onMounted(async ()=>{
-            // await nextTick()
             const { setFiledValues } = form.value
-            
             setFiledValues({username:123321, singalValue:'is'})
         })
         setUseForm({

@@ -273,3 +273,5 @@ npm publish --access public
 - 新增组件FormComponent,多加了校验功能配置
 ### 0.2.8
 - 添加formComponent清楚字段值为空
+### 0.2.9
+- 修改form-component组件清除字段值并非重置
