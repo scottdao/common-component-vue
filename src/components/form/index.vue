@@ -26,72 +26,20 @@
                                 }"
                     >
                         <span v-if="!item.isSlotFlag">
-                            <!-- input简易 -->
-                            <a-input 
-                                v-if="item.component.name === 'input'"
-                                v-model:value="formState[item.filed]" 
-                                :placeholder='item.component.props.placeholder'
-                                :size='(item.component && item.component.props && item.component.props.size) || ""'
-                                @change="(e)=>item.component.props.change && item.component.props.change(e)"
-                                allowClear
-                                style="height:100%;"
-                            />
-                            <!-- inputNumber简易 -->
-                            <a-input-number 
-                                v-if="item.component.name==='inputNumber'"
-                                style="width:100%;height:100%;"   
-                                v-model:value="formState[item.filed]" 
-                                :placeholder='item.component.props.placeholder'
-                                :size='(item.component && item.component.props && item.component.props.size) || ""'
-                                @change="(e)=>item.component.props.change && item.component.props.change(e)"
-                                allowClear
-                            >
-                             </a-input-number>
-                            <!-- select简易 -->
-                            <a-select 
-                               v-if="item.component.name==='select'"
-                               v-model:value="formState[item.filed]"
-                               allowClear
-                               :placeholder='item.component.props.placeholder'
-                               style="height:100%;"
-                                @change="(e)=>item.component.props.change && item.component.props.change(e)"
-                               :size='(item.component && item.component.props && item.component.props.size)||""'
-                               :mode="item.component.props.mode || undefined"
-                            >
-                                <a-select-option
-                                    v-for="_option in item.component.data"
-                                    :value='_option.value'
-                                    :key="_option.id"
-                                >{{_option.label}}</a-select-option>
-                            </a-select>
-                            <!-- a-date-picker简易 -->
-                            <a-date-picker
-                                v-if="item.component.name==='datePicker'"
-                                v-model:value="formState[item.filed]"
-                                allowClear
-                                :locale='locale'
-                                style="width:100%;"
-                                :size='(item.component && item.component.props && item.component.props.size)||""'
-                                :placeholder='item.component.props.placeholder'
-                                @change="(e)=>item.component.props.change&&item.component.props.change(e)" 
-                                @ok="(e)=>item.component.props.ok&&item.component.props.ok(e)"
-                                :show-time="item.component.props.showTime"
-                            />
-                            <!-- <component
-                                :is="item.component.name"
-                                :placeholder='item.component.props.placeholder'
-                                :ref='item.filed'
-                                v-model:value="formState[item.filed]"
-                            /> -->
+                            <provider-component 
+                                :components='item.component||{}' 
+                                :locale="formConfig.locale"
+                                v-model:value='formState[item.filed]'
+                            ></provider-component>
                         </span>
-                         <span v-else-if="item.isSlotFlag===1" >
-                             <!-- 具名插槽与作用域插槽 -->
-                             <slot :name="item.filed" :config='item' ></slot>
-                         </span>
-                         <span v-else>
-                             <!-- 纯作用域插槽 -->
-                             <slot :data='item'> </slot>
-                         </span>
+                        <span v-else-if="item.isSlotFlag===1" >
+                            <!-- 具名插槽与作用域插槽 -->
+                            <slot :name="item.filed" :config='item' ></slot>
+                        </span>
+                        <span v-else>
+                            <!-- 纯作用域插槽 -->
+                            <slot :data='item'> </slot>
+                        </span>
                     </a-form-item>
                 </a-col>
             </a-row>
@@ -100,9 +48,12 @@
 <script lang="js">
 import { defineComponent, onMounted } from 'vue';
 import _ from 'lodash';
- import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
+import ProviderComponent from './component/ProviderComponent'
 export default defineComponent({
     name:'commonForm',
+    components:{
+        ProviderComponent
+    },
     props:{
         formParams:{
             type:Object,
@@ -110,14 +61,14 @@ export default defineComponent({
         }
     },
     setup(props) {
+        // console.log(props.formParams)
         return {
           ...props.formParams,
           sizeConfigs:{
               small:28,
               default:32,
               large:40
-          },
-          locale
+          }
         }
     },
 })

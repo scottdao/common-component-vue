@@ -1,6 +1,10 @@
 # 组件库说明
 ## 概述
 为了满足定制化的需求，提高代码的可复用性，设计一套基于antd的后台组件库。
+### 版本号使用说明
+- 修复某个组件bug及某个组件小需求更迭，0.0.x需要将最末尾版本加1
+- 新增一个组件的需求迭代，0.x.0需要将中间版本加1(0.x.0启动)
+- 涉及重大版本改版，组件的所有设计架构改版，x.0.0将第一个版本号加1（x.0.0启动）
 ## 如何使用
 [私有npm仓库使用说明]()
 ## 基于antd-vue组件二次开发
@@ -171,6 +175,7 @@ export default defineComponent({
 ## 文档
 - `npx styleguidist server`可在本地查看
 - 在线文档待补充
+- component.data ===> array | function
 
 ## 贡献
 ### 代码规范
@@ -275,3 +280,9 @@ npm publish --access public
 - 添加formComponent清楚字段值为空
 ### 0.2.9
 - 修改form-component组件清除字段值并非重置
+### 0.3.0
+`2021-05-18`
+- 添加全局内置组件国际化配置
+- 添加providerComponent组件
+- 添加组件中增加data属性类型及类型判断，多元化传入组件数据
+- 增加range-picker时间组件的配置

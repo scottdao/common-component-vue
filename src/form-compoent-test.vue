@@ -71,7 +71,7 @@ export default defineComponent({
                                 console.log(v)
                             }
                         },
-                        data:[
+                        data:async ()=>[
                             {
                                 value:'is',
                                 label:'有',
@@ -135,12 +135,14 @@ export default defineComponent({
                     }]
                 },
                 hideRequiredMark:false,
-                labelAlign:'right'
+                labelAlign:'right',
+                // locale:'ch' // en:英文  ch:中文
         }
         const queryClick = ()=>{
             const { useForm } = form.value
             const form_value = useForm()
-            // console.log(form_value, 77666)
+            const v = form_value.getFieldsValue()
+            console.log(v, 77666)
         }
         const cancel = ()=>{
              const { clearFileds } = form.value
