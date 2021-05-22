@@ -176,7 +176,6 @@ export default defineComponent({
 - `npx styleguidist server`可在本地查看
 - 在线文档待补充
 - component.data ===> array | function
-
 ## 贡献
 ### 代码规范
 使用eslint作为代码规范自动化检查工具。为了构建方便，直接使用了airbnb的代码规范，再根据实际使用做定制化。

@@ -1,6 +1,6 @@
 {
     "name": "@form-component/common-antd-vue",
-    "version": "0.2.9",
+    "version": "0.3.0",
     "description": "组件库开发及组件复用",
     "main": "lib/index.js",
     "module": "esm/index.js",
@@ -16,7 +16,7 @@
         "build:lib": "rm -rf lib && npm run build:commonjs && npm run copy-vue:lib  && npm run copy-css:lib",
         "build:esm:dev": "rm -rf esm && npm run build:esm && npm run copy-vue:esm  && npm run copy-css:esm",
         "build": "npm run build:lib && npm run build:esm:dev",
-        "doc:server": "npx styleguidist server",
+        "doc:server": "npx styleguidist server --config webpack.doc.js",
         "doc:build": "npx styleguidist build",
         "publish:dev": "npm publish --access public"
     },
@@ -32,7 +32,8 @@
     ],
     "peerDependencies": {
         "@vue/compiler-sfc": "^3.0.11",
-        "vue": ">=3.0.9"
+        "vue": ">=3.0.9",
+        "react": ">=16.14.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.4.4",
@@ -49,7 +50,7 @@
         "@babel/preset-stage-0": "^7.0.0",
         "@babel/preset-typescript": "^7.13.0",
         "@vue/babel-plugin-jsx": "^1.0.5",
-        "antd": "3.11.2",
+        "antd": "^3.11.2",
         "babel-eslint": "^10.0.1",
         "babel-loader": "^8.0.6",
         "cpx": "^1.5.0",
@@ -61,6 +62,9 @@
         "eslint-plugin-jsx-a11y": "^6.2.1",
         "html-webpack-plugin": "^3.2.0",
         "prop-types": "^15.7.2",
+        "react": "^16.14.0",
+        "react-dom": "^16.14.0",
+        "react-styleguidist": "^11.1.6",
         "style-loader": "^0.23.1",
         "styled-components": "^4.2.0",
         "ts-loader": "^9.1.1",
@@ -77,6 +81,7 @@
         "vue-router": "^4.0.0",
         "vue-server-renderer": "^2.6.11",
         "vue-style-loader": "^4.1.2",
+        "vue-styleguidist": "^4.38.2",
         "vuex": "^4.0.0-beta.2",
         "webpack": "^4.30.0",
         "webpack-cli": "^3.3.2",

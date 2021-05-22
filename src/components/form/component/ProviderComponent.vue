@@ -27,11 +27,13 @@
         <a-select 
             v-if="name==='select'"
             :value='value'
-            @input="$emit('update:value', $event.target.value)"
             allowClear
             :placeholder='props.placeholder'
             style="height:100%;"
-            @change="(e)=>props.change && props.change(e)"
+            @change="(e)=>{ 
+                $emit('update:value', e)
+                props.change && props.change(e) 
+            }"
             :size='(props && props.size)||""'
             :mode="props.mode || undefined"
         >

@@ -88,7 +88,7 @@ export default defineComponent({
                 {
                     label:"日期",
                     filed:'timer',
-                    id:0,
+                    id:2,
                     component:{ 
                         name:'datePicker',
                         props:{
@@ -98,17 +98,29 @@ export default defineComponent({
                     }
                 },
                 {
+                    label:"时间范围",
+                    filed:'times',
+                    id:3,
+                    component:{ 
+                        name:'rangePicker',
+                        props:{
+                            placeholder:['开始日期', '结束日期'],
+                            size:'small',
+                        }
+                    }
+                },
+                {
                     label:"自定义",
                     filed:'customer',
                     isSlotFlag:true,
-                    id:0,
+                    id:4,
                     component:{}
                 },
                 {
                     label:"多选组件",
                     filed:'checkAll',
                     isSlotFlag:true,
-                    id:4,
+                    id:5,
                     component:{}
                 }
         ];

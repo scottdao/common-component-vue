@@ -73,7 +73,9 @@ export default defineComponent({
                             props:{
                                 placeholder:"请选择信号值",
                                 size:'large',// default 32
-                                // change:()=>{}
+                                change:(e)=>{
+                                    console.log(e);
+                                }
                             },
                             data:[
                                 {
