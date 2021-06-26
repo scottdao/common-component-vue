@@ -11,4 +11,5 @@ export {
     installAntd
 }
 from './install-antd'
+export * from './hooks/base'
     // export

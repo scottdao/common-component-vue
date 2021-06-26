@@ -285,3 +285,10 @@ npm publish --access public
 - 添加providerComponent组件
 - 添加组件中增加data属性类型及类型判断，多元化传入组件数据
 - 增加range-picker时间组件的配置
+### 0.3.1
+`2021-05-22`
+- fix:修复select重置不生效问题
+### 0.3.2
+`2021-06-25`
+- 增加必填与非必填切换功能
+

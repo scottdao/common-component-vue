@@ -69,7 +69,8 @@ export default defineComponent({
             Object.keys(values).forEach(keys => {
                 _values[keys] = values[keys]
             });
-        }
+        };
+        // console.log(forms, 998777)
         return {
             forms,
             useForm:use_form,

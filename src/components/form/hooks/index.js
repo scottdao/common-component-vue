@@ -1,6 +1,6 @@
-import { provide, inject, reactive, ref, toRefs } from 'vue'
+import { provide, inject, reactive, ref, toRefs, watchEffect, watch } from 'vue'
 import _ from 'lodash'
-
+import { useState } from './base'
 /***
  *
  *搜索form表单参数逻辑
@@ -44,15 +44,26 @@ export const useFormParams = () => {
 export const useForm = () => {
     return inject('form')
 }
+
 export const setUseForm = ({ formParams, col = 1, formState, formConfig, formItemConfig }) => {
     const formRef = ref()
-
+    // const [rules, setRules] = useState(formConfig.rules)
+    const rules = ref(formConfig.rules)
+    const setRules = (value)=>{
+        rules.value = value;
+    }
     const state = reactive({
         formParams: _.chunk([...formParams], col),
         formState: formState,
-        formConfig,
+        formConfig:{...formConfig , rules },
         formItemConfig,
         col,
+        // value,
+        // setValue
     })
     provide('form', {...toRefs(state), formRef })
+    return {
+        setRules,
+        rules:rules.value
+    }
 }

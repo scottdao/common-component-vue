@@ -14,7 +14,7 @@
                     :span='item.span?item.span:(24/col)' 
                     :offset='item.offset||(items.length-1===index?(24-((24/col)*items.length)):0)'
                 >
-                    <a-form-item  
+                    <a-form-item
                             :name="item.filed"
                             :label="item.label"
                             :wrapper-col="{
@@ -61,6 +61,7 @@ export default defineComponent({
         }
     },
     setup(props) {
+        
         return {
           ...props.formParams,
           sizeConfigs:{
