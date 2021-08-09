@@ -47,7 +47,8 @@ import {
     reactive,
     toRefs,
     watch,
-    toRaw
+    toRaw,
+    watchEffect
 } from 'vue'
 import CommonForm from './index.vue';
 import { useFormParams } from './index'
@@ -66,11 +67,21 @@ export default defineComponent({
         UpOutlined,
         DownOutlined
     },
+    props:{
+        isDefaultExpand:{
+            type:Array,
+            default:[]
+        }
+    },
     setup(props, context) {
         const state = reactive({
             isExpand:false,
             // formParams:[]
             params:[]
+        })
+        watchEffect(()=>{
+            // console.log(props, 123321)
+            state.isExpand = props.isDefaultExpand
         })
         const formParams = useFormParams()
         const { formState, formRef, formParams:params, noExpandFn, expandFn, isFlagLimit }  = formParams

@@ -1,7 +1,11 @@
 <template>
 <div>
  <div style="background-color:#ddd;padding:20px;">
-    <search-form @searchQuery='queryClick' @resetQuery='resetScreen'>
+    <search-form 
+            @searchQuery='queryClick' 
+            @resetQuery='resetScreen' 
+            :isDefaultExpand='true'
+    >
         <template v-slot:customer="{config:{data, formState}}">
             <!-- 作用域插槽，自定义组件 -->
             <!-- 1234567896 -->
