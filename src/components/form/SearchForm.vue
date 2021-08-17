@@ -69,8 +69,8 @@ export default defineComponent({
     },
     props:{
         isDefaultExpand:{
-            type:Array,
-            default:[]
+            type:Boolean,
+            default:false
         }
     },
     setup(props, context) {
@@ -81,6 +81,7 @@ export default defineComponent({
         })
         watchEffect(()=>{
             // console.log(props, 123321)
+            // const a:boolean
             state.isExpand = props.isDefaultExpand
         })
         const formParams = useFormParams()
