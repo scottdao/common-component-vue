@@ -181,7 +181,14 @@ export default defineComponent({
             formParams,
             formState,
             formConfig,
-            formItemConfig:{}
+            formItemConfig:{
+                wrapperCol:{
+                    span:18
+                },
+                labelCol:{
+                    span:6
+                }
+            }
         })
         return {
             queryClick,

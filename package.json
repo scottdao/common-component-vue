@@ -1,6 +1,6 @@
 {
     "name": "@form-component/common-antd-vue",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "description": "组件库开发及组件复用",
     "main": "lib/index.js",
     "module": "esm/index.js",
