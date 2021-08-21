@@ -12,5 +12,5 @@ export {
 }
 from './install-antd'
 export * from './hooks/base'
-export { default as RichEditor } from './component/RichEditor/index.jsx'
+export { default as RichEditor } from './component/RichEditor/index.js'
     // export
