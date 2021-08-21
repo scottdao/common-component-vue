@@ -27,7 +27,7 @@ Quill.register({
   }, true)
 
 export default defineComponent({
-    emits: ['onFocus', 'onBlur', 'onChange', 'input', 'onReady'],
+    emits: ['onFocus', 'onBlur', 'onChange', 'onReady'],
     props:{
         options:{
             type:Object,

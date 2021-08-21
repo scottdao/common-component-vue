@@ -207,6 +207,45 @@ export default defineComponent({
 
 <h3 id='formItemConfig'>formItemConfig</h3>
 
+### 富文本编辑器 RichEditor
+
+| 参数名      | 描述  | 类型 | 默认值 |
+| ---------- | ---- | ---- | ---- |
+| options | 富文本配置 | [Object](https://kang-bing-kui.gitbook.io/quill/wen-dang-document/configuration) | [defaultOptions](#defaultOptions) |
+| content | 获取富文本的内容值，当设置为v-model:value, content失效 | string | - |
+| value   | v-model:value绑定富文本编辑器的内容 | string | - |
+| onFocus | 获取富文本的焦点 | function:(quill：object)=>{} | - |
+| onBlur | 失去富文本的焦点 | function:(quill：object)=>{} | - |
+| onChange | 改变富文本的事件 | function:({ html: Html, text, quill })=>{} | - |
+| onReady | 加载富文本事件 | function:(quill)=>{} | - |
+
+
+<h3 id='defaultOptions'>defaultOptions</h3>
+```
+{
+    theme: 'snow', // 设置主题
+    modules: {
+        toolbar: {
+        container: [
+            [{'header': [1, 2, false]}],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{'script': 'sub'}, {'script': 'super'}],
+            [{'align': []}],
+            [{'color': []}],
+            [{'indent': '-1'}, {'indent': '+1'}],
+            [{'list': 'ordered'}, {'list': 'bullet'}],
+            [{'direction': 'rtl'}],
+            ["formula"], // 函数功能
+            ['link', 'image', 'video'],
+            ['table'], // 引入table到工具栏
+            ['clean'],
+        ],
+        ...
+        },
+        ...
+    }
+}
+```
 ## 文档
 
 - `npx styleguidist server`可在本地查看
