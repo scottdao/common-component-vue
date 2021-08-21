@@ -379,5 +379,7 @@ npm publish --access public
 - 添加默认展开参数
 
 ### 0.3.4
+　`2021-08-17`
 -  添加api文档
 - 增加formItemConfig中的属性设置
+- 富文本编辑器开发

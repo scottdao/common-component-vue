@@ -39,16 +39,21 @@
  <div style="background-color:#ddd;padding:20px;width:600px;margin:30px auto;">
       <FormComponentTest />
  </div>
+ <div>
+     <rich-editor />
+ </div>
 </div>
 </template>
 <script lang="js">
 import { defineComponent, toRaw, ref } from 'vue'
 import  { SearchForm, useFormSearch }  from './components/index.js'
 import FormComponentTest from './form-compoent-test.vue'
+import RichEditor from './RichText'
 export default defineComponent({
     components:{
         SearchForm,
-        FormComponentTest
+        FormComponentTest,
+        RichEditor
     },
     setup(){
             const formParams = [

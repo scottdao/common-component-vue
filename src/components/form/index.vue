@@ -63,7 +63,7 @@ export default defineComponent({
         }
     },
     setup(props) {
-        console.log(props.formParams, 9977)
+        // console.log(props.formParams, 9977)
         return {
           ...props.formParams,
           sizeConfigs:{

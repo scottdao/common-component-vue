@@ -37,6 +37,10 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
+                test:/\.(woff|woff2|eot|otf|ttf)$/,
+                use:'file-loader'
+            },
+            {
                 test: /\.md$/,
                 loader: 'raw-loader',
             },
