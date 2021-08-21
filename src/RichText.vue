@@ -7,17 +7,13 @@
             v-model:value="editValue"
            @onChange="onChange"
         >
-            <!-- <template v-slot:toolbarCustomer >
-                123213 自定义工具栏 @input="onInput"
-                 :content='`12313`':content='content'
-            </template> -->
         </rich-editor>
         <!-- {{editValue}} -->
     </div>
 </template>
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import { RichEditor }from './components/form'
+import { RichEditor }from './components'
 export default defineComponent({
     components:{
         RichEditor
