@@ -12,4 +12,5 @@ export {
 }
 from './install-antd'
 export * from './hooks/base'
+export { default as RichEditor } from './component/RichEditor'
     // export
