@@ -13,7 +13,7 @@
 </template>
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import { RichEditor }from './components'
+import RichEditor from '../lib/form/component/RichEditor/index.js'
 export default defineComponent({
     components:{
         RichEditor
