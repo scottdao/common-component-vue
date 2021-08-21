@@ -208,6 +208,15 @@ export default defineComponent({
 <h3 id='formItemConfig'>formItemConfig</h3>
 
 ### 富文本编辑器 RichEditor
+```
+    webpack配置
+    {
+        test:/\.(woff|woff2|eot|otf|ttf)$/,
+        use:'file-loader'
+    }
+```
+
+
 
 | 参数名      | 描述  | 类型 | 默认值 |
 | ---------- | ---- | ---- | ---- |

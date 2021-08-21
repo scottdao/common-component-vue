@@ -17,7 +17,7 @@
 </template>
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import RichEditor from './components/form/component/RichEditor'
+import { RichEditor }from './components/form'
 export default defineComponent({
     components:{
         RichEditor

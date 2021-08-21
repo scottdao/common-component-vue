@@ -19,7 +19,6 @@ win.katex = katex;
 import get from 'lodash/get'
 import set from 'lodash/set'
 import isEmpty from 'lodash/isEmpty'
-import { source } from 'vfile-message';
 
 // 注册table组件
 Quill.register({
