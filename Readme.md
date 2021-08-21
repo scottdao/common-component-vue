@@ -230,31 +230,33 @@ export default defineComponent({
 
 
 <h3 id='defaultOptions'>defaultOptions</h3>
+
 ```
-{
-    theme: 'snow', // 设置主题
-    modules: {
-        toolbar: {
-        container: [
-            [{'header': [1, 2, false]}],
-            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-            [{'script': 'sub'}, {'script': 'super'}],
-            [{'align': []}],
-            [{'color': []}],
-            [{'indent': '-1'}, {'indent': '+1'}],
-            [{'list': 'ordered'}, {'list': 'bullet'}],
-            [{'direction': 'rtl'}],
-            ["formula"], // 函数功能
-            ['link', 'image', 'video'],
-            ['table'], // 引入table到工具栏
-            ['clean'],
-        ],
-        ...
-        },
-        ...
+    {
+        theme: 'snow', // 设置主题
+        modules: {
+            toolbar: {
+            container: [
+                [{'header': [1, 2, false]}],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                [{'script': 'sub'}, {'script': 'super'}],
+                [{'align': []}],
+                [{'color': []}],
+                [{'indent': '-1'}, {'indent': '+1'}],
+                [{'list': 'ordered'}, {'list': 'bullet'}],
+                [{'direction': 'rtl'}],
+                ["formula"], // 函数功能
+                ['link', 'image', 'video'],
+                ['table'], // 引入table到工具栏
+                ['clean'],
+            ],
+            ...
+            },
+            ...
+        }
     }
-}
 ```
+
 ## 文档
 
 - `npx styleguidist server`可在本地查看
