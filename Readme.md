@@ -17,12 +17,10 @@
 ## 基于 antd-vue 组件二次开发
 
 [组件](https://www.antdv.com/components/button-cn/)
-
-```
+```js
 npm i @form-component/common-antd-vue
 ```
-
-```
+```js
 <div style="background-color:#ddd;padding:20px;">
     <search-form @searchQuery='queryClick' @resetQuery='resetScreen'>
         <template v-slot:customer="{config:{data, formState}}">
