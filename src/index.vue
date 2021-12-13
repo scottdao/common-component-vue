@@ -42,13 +42,27 @@
  <div>
      <rich-editor />
  </div>
+ <Button type="primary" @click="()=>{setCount()}">嗲你家</Button>
+ {{startCount}}
 </div>
 </template>
-<script lang="js">
-import { defineComponent, toRaw, ref } from 'vue'
+<script >
+import {
+    defineComponent,
+    toRaw,
+    ref,
+    onBeforeUpdate,
+    onUpdated,
+    watchEffect,
+    onRenderTracked,
+    onRenderTriggered,
+    onMounted,
+    onUnmounted
+} from 'vue'
 import  { SearchForm, useFormSearch }  from './components/index.js'
 import FormComponentTest from './form-compoent-test.vue'
 import RichEditor from './RichText'
+import { useState, useEffect } from './components/index'
 export default defineComponent({
     components:{
         SearchForm,
@@ -56,7 +70,9 @@ export default defineComponent({
         RichEditor
     },
     setup(){
-            const formParams = [
+        const [startCount, setStartCount] = useState(0)
+        const [count, setCount] = useState('we')
+        const formParams = [
                     {
                         label:"用户名",
                         filed:'username',
@@ -145,7 +161,7 @@ export default defineComponent({
                             // data:[]
                         }
                     }
-            ];
+        ];
         const formState = {
                     username:undefined,
                     phone:undefined,
@@ -158,6 +174,15 @@ export default defineComponent({
                     hideRequiredMark:false,
                     labelAlign:'right'
         }
+        useEffect(()=>{
+            console.log(startCount, count)
+            return ()=>{
+                console.log('销毁')
+            }
+        }, [startCount, count])
+        onUnmounted(()=>{
+            console.log('--99088--')
+        })
         useFormSearch({
             formParams,
             formState,
@@ -178,6 +203,13 @@ export default defineComponent({
             resetScreen:(value)=>{
                 // console.log(value)
             },
+            setCount:()=>{
+                setStartCount(2)
+                setCount('my')
+                // console.log(startCount)
+            },
+            startCount
+
             // formState
         }
     }

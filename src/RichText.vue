@@ -13,7 +13,7 @@
 </template>
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import RichEditor from '../lib/form/component/RichEditor/index.js'
+import RichEditor from '../lib/form/component/RichEditor/index'
 export default defineComponent({
     components:{
         RichEditor
@@ -53,5 +53,5 @@ export default defineComponent({
    .editor-contain{
        height: 100%;
    }
-   :deep(#vue-editor)
+   :deep(#vue-editor){}
 </style>

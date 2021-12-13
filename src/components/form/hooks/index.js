@@ -1,6 +1,6 @@
 import { provide, inject, reactive, ref, toRefs, watchEffect, watch } from 'vue'
 import _ from 'lodash'
-import { useState } from './base'
+export * from './base'
 /***
  *
  *搜索form表单参数逻辑
