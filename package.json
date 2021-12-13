@@ -82,7 +82,7 @@
         "vue-router": "^4.0.0",
         "vue-server-renderer": "^2.6.11",
         "vue-style-loader": "^4.1.2",
-        "vue-styleguidist": "^4.38.2",
+        "vue-styleguidist": "^4.43.0",
         "vuex": "^4.0.0-beta.2",
         "webpack": "^4.30.0",
         "webpack-cli": "^3.3.2",
@@ -98,6 +98,7 @@
         "quill": "^2.0.0-dev.3",
         "quill-better-table": "^1.2.10",
         "quill-emoji": "^0.2.0",
-        "quill-image-drop-module": "^1.0.3"
+        "quill-image-drop-module": "^1.0.3",
+        "yarn": "^1.22.17"
     }
 }
