@@ -18,7 +18,8 @@
         "build": "npm run build:lib && npm run build:esm:dev",
         "doc:server": "npx styleguidist server --config webpack.doc.js",
         "doc:build": "npx styleguidist build",
-        "publish:dev": "npm publish --access public"
+        "publish:dev": "npm publish --access public",
+        "build:vue":"cross-env vue build index.vue"
     },
     "repository": {
         "type": "git",
@@ -29,6 +30,12 @@
     "files": [
         "lib",
         "esm"
+    ],
+    "keywords": [
+        "vue3-editor",
+        "ant-design-vue",
+        "form",
+        "vue3-hooks"
     ],
     "peerDependencies": {
         "@vue/compiler-sfc": "^3.0.11",
