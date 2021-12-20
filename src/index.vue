@@ -175,7 +175,7 @@ export default defineComponent({
                     labelAlign:'right'
         }
         useEffect(()=>{
-            console.log(startCount, count)
+            // console.log(startCount, count)
             return ()=>{
                 console.log('销毁')
             }
