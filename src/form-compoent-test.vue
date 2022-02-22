@@ -38,7 +38,7 @@
 </template>
 <script>
 import { defineComponent, nextTick, onMounted, ref, toRaw } from 'vue'
-import { FormComponent, setUseForm, useState } from './components/index'
+import { FormComponent, setUseForm, useState } from '../esm/index'
 export default defineComponent({
     components:{
         FormComponent
