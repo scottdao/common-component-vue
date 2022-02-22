@@ -37,8 +37,8 @@
     </div>
 </template>
 <script>
-import { defineComponent, nextTick, onMounted, ref, toRaw } from 'vue'
-import { FormComponent, setUseForm, useState } from '../esm/index'
+import { defineComponent, nextTick, onMounted, ref, toRaw, computed } from 'vue'
+import { FormComponent, setUseForm, useState } from './components/index'
 export default defineComponent({
     components:{
         FormComponent
@@ -84,7 +84,7 @@ export default defineComponent({
                                 }})
                             }
                         },
-                        data:async ()=>[
+                        data:computed(()=>[
                             {
                                 value:'has',
                                 label:'必填',
@@ -95,7 +95,7 @@ export default defineComponent({
                                 label:"非必填",
                                 id:1
                             }
-                        ]
+                        ])
                     }
                 },
                 {

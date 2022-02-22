@@ -34,14 +34,15 @@
                 $emit('update:value', e)
                 props.change && props.change(e) 
             }"
+            :options="data"
             :size='(props && props.size)||""'
             :mode="props.mode || undefined"
         >
-            <a-select-option
+            <!-- <a-select-option
                 v-for="_option in data"
                 :value='_option.value'
                 :key="_option.id"
-            >{{_option.label}}</a-select-option>
+            >{{_option.label}}</a-select-option> -->
         </a-select>
         <!-- a-date-picker简易 -->
         <a-date-picker
@@ -103,12 +104,15 @@ export default defineComponent({
         })
         onMounted(async ()=>{
            const _data = props.components.data
+           
            if(_data instanceof Array){
                state.data = _data
            }else if(_data instanceof Function){
                 const _data_ = await _data()
                 state.data = _data_
            }
+           console.log(_data, 998766)
+        //    else if(_data instanceof Object){}
         })
         return {
             ...props.components,
