@@ -14,20 +14,22 @@
                     :span='item.span?item.span:(24/col)' 
                     :offset='item.offset||(items.length-1===index?(24-((24/col)*items.length)):0)'
                 >
-                    <a-form-item  
+                    <a-form-item
                             :name="item.filed"
                             :label="item.label"
                             :wrapper-col="{
-                                span:item.label?20:24
+                                span:item.label?20:24,
+                                ...formItemConfig.wrapperCol
                             }"
                             :label-col="{span:4, style:{
                                     // lineHeight:2
-                                }
-                                }"
+                                },
+                                ...formItemConfig.labelCol
+                            }"
                     >
                         <span v-if="!item.isSlotFlag">
-                            <provider-component 
-                                :components='item.component||{}' 
+                            <provider-component
+                                :components='item.component||{}'
                                 :locale="formConfig.locale"
                                 v-model:value='formState[item.filed]'
                             ></provider-component>
@@ -61,7 +63,7 @@ export default defineComponent({
         }
     },
     setup(props) {
-        // console.log(props.formParams)
+        // console.log(props.formParams, 9977)
         return {
           ...props.formParams,
           sizeConfigs:{

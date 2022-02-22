@@ -9,44 +9,6 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
     title: 'form-vue-components',
     template: path.join(__dirname, 'examples/src/index.html'),
 })
-const babelConfig = {
-    cacheDirectory: true,
-    presets: [
-        [
-            '@babel/preset-env',
-            {
-                targets: {
-                    browsers: [
-                        'last 2 versions',
-                        'Firefox ESR',
-                        '> 1%',
-                        'ie >= 11',
-                        'iOS >= 8',
-                        'Android >= 4',
-                    ],
-                },
-            },
-        ],
-        '@babel/preset-typescript',
-    ],
-    plugins: [
-        [
-            'babel-plugin-import',
-            {
-                libraryName: 'ant-design-vue',
-                libraryDirectory: '', // default: lib
-                style: true,
-            },
-        ],
-        ['@vue/babel-plugin-jsx', { mergeProps: false, enableObjectSlots: false }],
-        '@babel/plugin-proposal-optional-chaining',
-        '@babel/plugin-transform-object-assign',
-        '@babel/plugin-proposal-object-rest-spread',
-        '@babel/plugin-proposal-export-default-from',
-        '@babel/plugin-proposal-export-namespace-from',
-        '@babel/plugin-proposal-class-properties',
-    ],
-};
 module.exports = {
     entry: path.join(__dirname, 'examples/src/main.js'),
     module: {
@@ -73,6 +35,10 @@ module.exports = {
                     },
                 ],
                 exclude: /node_modules/,
+            },
+            {
+                test:/\.(woff|woff2|eot|otf|ttf)$/,
+                use:'file-loader'
             },
             {
                 test: /\.md$/,

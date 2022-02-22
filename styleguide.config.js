@@ -20,6 +20,6 @@ module.exports = {
         },
     ],
     styleguideComponents: {
-        // Wrapper: path.join(__dirname, 'src/styleguide/Wrapper'), // styleguilde 文档wrapper，配置公共样式等
+        Wrapper: path.join(__dirname, 'src/styleguide/Wrapper'), // styleguilde 文档wrapper，配置公共样式等
     },
 }

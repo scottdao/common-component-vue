@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { installAntd } from '../../src/components/index.js'
+// import BetterTable from 'quill-better-table'
 // import router from './router'
 // import store from './store'
 import 'ant-design-vue/dist/antd.css'

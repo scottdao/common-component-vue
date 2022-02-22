@@ -5,7 +5,7 @@ name: Node.js Package
 
 on:
   push:
-    branches: 
+    branches:
       - main
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 16
       - name: Build project
         run: yarn && yarn build
 
@@ -30,11 +30,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '15.x'
-          registry-url: https://registry.npmjs.org
+          node-version: '16.x'
+          registry-url: https://registry.npmjs.org/package
       - run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   # publish-gpr:
   #   needs: build

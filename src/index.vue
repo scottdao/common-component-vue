@@ -1,7 +1,11 @@
 <template>
 <div>
  <div style="background-color:#ddd;padding:20px;">
-    <search-form @searchQuery='queryClick' @resetQuery='resetScreen'>
+    <search-form 
+            @searchQuery='queryClick' 
+            @resetQuery='resetScreen' 
+            :isDefaultExpand='true'
+    >
         <template v-slot:customer="{config:{data, formState}}">
             <!-- 作用域插槽，自定义组件 -->
             <!-- 1234567896 -->
@@ -35,19 +39,40 @@
  <div style="background-color:#ddd;padding:20px;width:600px;margin:30px auto;">
       <FormComponentTest />
  </div>
+ <div>
+     <rich-editor />
+ </div>
+ <Button type="primary" @click="()=>{setCount()}">嗲你家</Button>
+ {{startCount}}
 </div>
 </template>
-<script lang="js">
-import { defineComponent, toRaw, ref } from 'vue'
+<script >
+import {
+    defineComponent,
+    toRaw,
+    ref,
+    onBeforeUpdate,
+    onUpdated,
+    watchEffect,
+    onRenderTracked,
+    onRenderTriggered,
+    onMounted,
+    onUnmounted
+} from 'vue'
 import  { SearchForm, useFormSearch }  from './components/index.js'
 import FormComponentTest from './form-compoent-test.vue'
+import RichEditor from './RichText'
+import { useState, useEffect } from './components/index'
 export default defineComponent({
     components:{
         SearchForm,
-        FormComponentTest
+        FormComponentTest,
+        RichEditor
     },
     setup(){
-            const formParams = [
+        const [startCount, setStartCount] = useState(0)
+        const [count, setCount] = useState('we')
+        const formParams = [
                     {
                         label:"用户名",
                         filed:'username',
@@ -73,7 +98,9 @@ export default defineComponent({
                             props:{
                                 placeholder:"请选择信号值",
                                 size:'large',// default 32
-                                // change:()=>{}
+                                change:(e)=>{
+                                    console.log(e);
+                                }
                             },
                             data:[
                                 {
@@ -134,7 +161,7 @@ export default defineComponent({
                             // data:[]
                         }
                     }
-            ];
+        ];
         const formState = {
                     username:undefined,
                     phone:undefined,
@@ -147,11 +174,27 @@ export default defineComponent({
                     hideRequiredMark:false,
                     labelAlign:'right'
         }
+        useEffect(()=>{
+            // console.log(startCount, count)
+            return ()=>{
+                console.log('销毁')
+            }
+        }, [startCount, count])
+        onUnmounted(()=>{
+            console.log('--99088--')
+        })
         useFormSearch({
             formParams,
             formState,
             formConfig,
-            formItemConfig:{}
+            formItemConfig:{
+                wrapperCol:{
+                    span:18
+                },
+                labelCol:{
+                    span:6
+                }
+            }
         })
         return {
             queryClick:(value)=>{
@@ -160,6 +203,13 @@ export default defineComponent({
             resetScreen:(value)=>{
                 // console.log(value)
             },
+            setCount:()=>{
+                setStartCount(2)
+                setCount('my')
+                // console.log(startCount)
+            },
+            startCount
+
             // formState
         }
     }

@@ -38,13 +38,15 @@
 </template>
 <script>
 import { defineComponent, nextTick, onMounted, ref, toRaw } from 'vue'
-import { FormComponent, setUseForm } from './components/index'
+import { FormComponent, setUseForm, useState } from './components/index'
 export default defineComponent({
     components:{
         FormComponent
     },
     setup() {
         const form = ref(null)
+        const requireds = ref(true)
+        // const [required, setRequired] = useState(true)
         const formParams = [
                 {
                     label:"用户名",
@@ -69,17 +71,28 @@ export default defineComponent({
                             size:'small',
                             change:(v)=>{
                                 console.log(v)
+                                let v_flag = requireds.value
+                                if(v==='has'){
+                                   v_flag = true
+                                }else{
+                                    v_flag = false
+                                }
+                                setRules({...rules, singalValue:{
+                                        required: v_flag,
+                                        message: '请选择信号',
+                                        trigger: 'blur'
+                                }})
                             }
                         },
                         data:async ()=>[
                             {
-                                value:'is',
-                                label:'有',
+                                value:'has',
+                                label:'必填',
                                 id:0
                             },
                             {
                                 value:'no',
-                                label:"否",
+                                label:"非必填",
                                 id:1
                             }
                         ]
@@ -88,7 +101,7 @@ export default defineComponent({
                 {
                     label:"日期",
                     filed:'timer',
-                    id:0,
+                    id:2,
                     component:{ 
                         name:'datePicker',
                         props:{
@@ -98,17 +111,29 @@ export default defineComponent({
                     }
                 },
                 {
+                    label:"时间范围",
+                    filed:'times',
+                    id:3,
+                    component:{ 
+                        name:'rangePicker',
+                        props:{
+                            placeholder:['开始日期', '结束日期'],
+                            size:'small',
+                        }
+                    }
+                },
+                {
                     label:"自定义",
                     filed:'customer',
                     isSlotFlag:true,
-                    id:0,
+                    id:4,
                     component:{}
                 },
                 {
                     label:"多选组件",
                     filed:'checkAll',
                     isSlotFlag:true,
-                    id:4,
+                    id:5,
                     component:{}
                 }
         ];
@@ -150,13 +175,20 @@ export default defineComponent({
         }
         onMounted(async ()=>{
             const { setFiledValues } = form.value
-            setFiledValues({username:123321, singalValue:'is'})
+            setFiledValues({username:123321, singalValue:'has'})
         })
-        setUseForm({
+       const { setRules, rules } =  setUseForm({
             formParams,
             formState,
             formConfig,
-            formItemConfig:{}
+            formItemConfig:{
+                wrapperCol:{
+                    span:18
+                },
+                labelCol:{
+                    span:6
+                }
+            }
         })
         return {
             queryClick,

@@ -47,7 +47,8 @@ import {
     reactive,
     toRefs,
     watch,
-    toRaw
+    toRaw,
+    watchEffect
 } from 'vue'
 import CommonForm from './index.vue';
 import { useFormParams } from './index'
@@ -66,11 +67,22 @@ export default defineComponent({
         UpOutlined,
         DownOutlined
     },
+    props:{
+        isDefaultExpand:{
+            type:Boolean,
+            default:false
+        }
+    },
     setup(props, context) {
         const state = reactive({
             isExpand:false,
             // formParams:[]
             params:[]
+        })
+        watchEffect(()=>{
+            // console.log(props, 123321)
+            // const a:boolean
+            state.isExpand = props.isDefaultExpand
         })
         const formParams = useFormParams()
         const { formState, formRef, formParams:params, noExpandFn, expandFn, isFlagLimit }  = formParams
@@ -80,6 +92,7 @@ export default defineComponent({
         }
         const searchQuery = (config)=>{
             const values = formRef.value.getFieldsValue()
+            // console.log(values, 87777)
             context.emit('searchQuery', { ..._.omit(values, ['button']) })
         }
         onMounted(()=>{
